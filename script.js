@@ -16,9 +16,35 @@ quiz[i].a.forEach((t,idx)=>{
 let b=document.createElement("button");
 b.className="ans";
 b.textContent=t;
-b.onclick=()=>{
-if(idx===quiz[i].c){i++;show();}
-else alert("Non proprio! Riprova 😊");
+b.onclick = () => {
+
+    // Disabilita tutti i pulsanti mentre mostra il risultato
+    document.querySelectorAll(".ans").forEach(btn => btn.disabled = true);
+
+    if (idx === quiz[i].c) {
+
+        // Risposta corretta
+        b.style.background = "#2e8b57";
+        b.style.color = "white";
+
+        setTimeout(() => {
+            i++;
+            show();
+        }, 900);
+
+    } else {
+
+        // Risposta sbagliata
+        b.style.background = "#c62828";
+        b.style.color = "white";
+
+        setTimeout(() => {
+            alert("Peccato! Dovrai ricominciare dall'inizio...");
+            i = 0;
+            show();
+        }, 900);
+
+    }
 };
 a.appendChild(b);
 });
