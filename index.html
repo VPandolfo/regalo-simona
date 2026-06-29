@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Il regalo di Simona</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il regalo di Simona</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div id="mist"></div>
+
 <div class="card">
-<h1>Ciao Simona! :)</h1>
-<h2>Benvenuta nel tuo regalo</h2>
-<p>Per scoprire cosa ti aspetta dovrai superare alcune prove...</p>
-<button id="start">Inizia l'avventura</button>
 
-<div id="quiz" class="hidden">
-<h3 id="q"></h3>
-<div id="answers"></div>
-<p id="progress"></p>
+    <h1>Ciao Simona! :)</h1>
+
+    <h2>Benvenuta nel tuo regalo</h2>
+
+    <p>
+        Per scoprire cosa ti aspetta dovrai superare alcune prove...
+    </p>
+
+    <button id="start">
+        Inizia l'avventura
+    </button>
+
+    <div id="quiz" class="hidden">
+
+        <h3 id="q"></h3>
+
+        <div id="answers"></div>
+
+        <p id="progress"></p>
+
+    </div>
+
+    <div id="reveal" class="hidden">
+
+        <h2>🏆 Complimenti!</h2>
+
+        <p>Hai completato tutte le prove.</p>
+
+        <p style="margin-top:25px;font-size:22px;">
+            Clicca qui per ricevere il tuo regalo!
+        </p>
+
+        <button id="giftButton">
+            🎁 Apri il regalo
+        </button>
+
+    </div>
+
 </div>
 
-<div id="reveal" class="hidden">
-<h2>🏴 Hai completato il viaggio!</h2>
-<p>Gli indizi ti hanno portata fin qui...</p>
-<div class="ticket">
-<h3>✈️ Destinazione: Cracovia (Polonia)</h3>
-<p>📅 27 Febbraio 2027</p>
-<p>🎻 <strong>OUTLANDER IN CONCERT</strong></p>
-<p>Il nostro viaggio in Outlander non finirà qui in Scozia... ❤️</p>
-</div>
-</div>
-</div>
 <script src="script.js"></script>
+
 </body>
+
 </html>
