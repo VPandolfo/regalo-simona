@@ -1,0 +1,14 @@
+body{
+margin:0;font-family:Georgia,serif;color:#f5ecd7;
+background:linear-gradient(rgba(15,25,20,.75),rgba(15,25,20,.9)),
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+height:100vh;display:flex;justify-content:center;align-items:center}
+#mist{position:fixed;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.08),transparent 40%);
+animation:fog 10s ease-in-out infinite alternate;pointer-events:none}
+@keyframes fog{from{transform:translateX(-20px)}to{transform:translateX(20px)}}
+.card{background:rgba(35,28,20,.75);padding:40px;border:2px solid #b79b5b;border-radius:18px;max-width:700px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.5)}
+button{padding:14px 24px;font-size:18px;background:#355c3b;color:#fff;border:none;border-radius:8px;cursor:pointer}
+button:hover{background:#46784d}
+.hidden{display:none}
+.ans{display:block;width:100%;margin:10px auto}
+.ticket{background:#efe1b7;color:#3a2d15;padding:20px;border-radius:10px;margin-top:20px}

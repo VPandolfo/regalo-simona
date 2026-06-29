@@ -1,0 +1,25 @@
+const quiz=[
+{q:"Qual è la serie che ci ha fatto innamorare della Scozia?",a:["Outlander","Harry Potter","The Crown","Lost"],c:0},
+{q:"In quale Paese abbiamo festeggiato i nostri 10 anni?",a:["Irlanda","Scozia","Norvegia","Francia"],c:1},
+{q:"Cosa ci piace fare insieme?",a:["Viaggiare","Dormire tutto il giorno","Collezionare francobolli","Golf"],c:0},
+{q:"Secondo te il viaggio è davvero finito?",a:["Sì","No"],c:1}
+];
+let i=0;
+const q=document.getElementById("q"),a=document.getElementById("answers"),p=document.getElementById("progress");
+document.getElementById("start").onclick=()=>{document.getElementById("start").style.display="none";document.getElementById("quiz").classList.remove("hidden");show();}
+function show(){
+if(i>=quiz.length){document.getElementById("quiz").classList.add("hidden");document.getElementById("reveal").classList.remove("hidden");return;}
+q.textContent=quiz[i].q;
+p.textContent=`Domanda ${i+1} di ${quiz.length}`;
+a.innerHTML="";
+quiz[i].a.forEach((t,idx)=>{
+let b=document.createElement("button");
+b.className="ans";
+b.textContent=t;
+b.onclick=()=>{
+if(idx===quiz[i].c){i++;show();}
+else alert("Non proprio! Riprova 😊");
+};
+a.appendChild(b);
+});
+}
