@@ -10,7 +10,6 @@ const quiz = [
     ],
     c:0
 },
-
 {
     q:"Come si chiamava il luogo dove ci siamo baciati oggi 10 anni fa?",
     a:[
