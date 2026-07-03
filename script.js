@@ -1,121 +1,174 @@
 const quiz = [
 
 {
-q:"Qual è la serie che ci ha fatto innamorare della Scozia?",
-a:["Outlander","Harry Potter","The Crown","Lost"],
-c:0
+    q:"Qual è la serie che ci ha fatto innamorare della Scozia?",
+    a:[
+        "Outlander",
+        "Harry Potter",
+        "The Crown",
+        "Lost"
+    ],
+    c:0
 },
 
 {
-q:"In quale Paese abbiamo festeggiato i nostri 10 anni?",
-a:["Irlanda","Scozia","Norvegia","Francia"],
-c:1
+    q:"Come si chiamava il luogo dove ci siamo baciati oggi 10 anni fa?",
+    a:[
+        "Lido Aurora",
+        "Lido Nettuno",
+        "Lido Miramare",
+        "Lido Azzurro"
+    ],
+    c:0
 },
 
 {
-q:"Cosa ci piace fare insieme?",
-a:["Viaggiare","Dormire tutto il giorno","Collezionare francobolli","Golf"],
-c:0
+    q:"Cosa ci piace fare insieme?",
+    a:[
+        "Viaggiare",
+        "Dormire tutto il giorno",
+        "Collezionare francobolli",
+        "Golf"
+    ],
+    c:0
 },
 
 {
-q:"Secondo te il viaggio è davvero finito?",
-a:["Sì","No"],
-c:1
+    q:"Secondo te il viaggio in Outlander finirà dopo questa vacanza?",
+    a:[
+        "Sì",
+        "No"
+    ],
+    c:1
 }
 
 ];
 
-let i = 0;
+let currentQuestion = 0;
 
-const q = document.getElementById("q");
-const a = document.getElementById("answers");
-const p = document.getElementById("progress");
+const intro = document.getElementById("intro");
+const quizScreen = document.getElementById("quiz");
+const failureScreen = document.getElementById("failure");
+const revealScreen = document.getElementById("reveal");
 
-document.getElementById("start").onclick = () => {
+const question = document.getElementById("q");
+const answers = document.getElementById("answers");
+const progress = document.getElementById("progress");
 
-    document.getElementById("start").style.display = "none";
+document.getElementById("start").addEventListener("click", ()=>{
 
-    document.getElementById("quiz").classList.remove("hidden");
+    intro.classList.add("hidden");
 
-    show();
+    quizScreen.classList.remove("hidden");
 
-};
+    showQuestion();
 
-function show(){
+});
 
-    if(i >= quiz.length){
+function showQuestion(){
 
-        document.getElementById("quiz").classList.add("hidden");
+    const current = quiz[currentQuestion];
 
-        document.getElementById("reveal").classList.remove("hidden");
+    progress.innerHTML =
+    `Domanda ${currentQuestion+1} di ${quiz.length}`;
 
-        return;
+    question.innerHTML = current.q;
 
-    }
+    answers.innerHTML = "";
 
-    q.textContent = quiz[i].q;
+    current.a.forEach((text,index)=>{
 
-    p.textContent = `Domanda ${i+1} di ${quiz.length}`;
+        const button = document.createElement("button");
 
-    a.innerHTML = "";
+        button.className = "ans";
 
-    quiz[i].a.forEach((text,index)=>{
+        button.innerHTML = text;
 
-        const b = document.createElement("button");
+        button.addEventListener("click",()=>{
 
-        b.className = "ans";
+            document
+            .querySelectorAll(".ans")
+            .forEach(btn=>btn.disabled=true);
 
-        b.textContent = text;
+            if(index===current.c){
 
-        b.onclick = ()=>{
+                button.style.background="#2e8b57";
 
-            document.querySelectorAll(".ans").forEach(btn=>btn.disabled=true);
+                button.style.borderColor="#69d28d";
 
-            if(index === quiz[i].c){
-
-                b.style.background = "#2e8b57";
-
-                b.style.color = "white";
+                button.style.transform="scale(1.03)";
 
                 setTimeout(()=>{
 
-                    i++;
+                    currentQuestion++;
 
-                    show();
+                    if(currentQuestion>=quiz.length){
 
-                },800);
+                        quizScreen.classList.add("hidden");
+
+                        revealScreen.classList.remove("hidden");
+
+                    }
+
+                    else{
+
+                        showQuestion();
+
+                    }
+
+                },900);
 
             }
 
             else{
 
-                b.style.background = "#b71c1c";
+                button.style.background="#a71d2a";
 
-                b.style.color = "white";
+                button.style.borderColor="#ff6b6b";
+
+                button.animate([
+                    {transform:"translateX(0px)"},
+                    {transform:"translateX(-8px)"},
+                    {transform:"translateX(8px)"},
+                    {transform:"translateX(-8px)"},
+                    {transform:"translateX(8px)"},
+                    {transform:"translateX(0px)"}
+                ],{
+                    duration:450
+                });
 
                 setTimeout(()=>{
 
-                    alert("Hai sbagliato! Dovrai ricominciare il viaggio.");
+                    quizScreen.classList.add("hidden");
 
-                    i = 0;
+                    failureScreen.classList.remove("hidden");
 
-                    show();
+                },900);
 
-                },800);
+                setTimeout(()=>{
+
+                    failureScreen.classList.add("hidden");
+
+                    quizScreen.classList.remove("hidden");
+
+                    currentQuestion=0;
+
+                    showQuestion();
+
+                },3200);
 
             }
 
-        };
+        });
 
-        a.appendChild(b);
+        answers.appendChild(button);
 
     });
 
 }
 
-document.getElementById("giftButton").onclick = ()=>{
+document.getElementById("giftButton").addEventListener("click",()=>{
 
-    window.location.href = "regalo.pdf";
+    window.location.href="regalo.pdf";
 
-};
+});
