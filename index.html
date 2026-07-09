@@ -1,17 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Il regalo di Simona ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,111 +24,120 @@
 <div class="fog fog1"></div>
 <div class="fog fog2"></div>
 
-<main class="container">
+<main>
 
-<!-- INTRO -->
+    <!-- INTRO -->
 
-<section id="intro" class="screen">
+    <section id="intro" class="screen">
 
-<div class="parchment">
+        <div class="parchment">
 
-<h1>Ciao Simona ❤️</h1>
+            <h1>Ciao Simona ❤️</h1>
 
-<h2>Benvenuta nel tuo regalo</h2>
+            <h2>Benvenuta nel tuo regalo</h2>
 
-<p>
+            <p>
 
-Per scoprire cosa ti aspetta dovrai superare alcune prove...
+                Per scoprire cosa ti aspetta
+                dovrai superare alcune prove...
 
-</p>
+            </p>
 
-<button id="start" class="mainButton">
+            <button id="start" class="mainButton">
 
-Inizia l'avventura
+                Inizia l'avventura
 
-</button>
+            </button>
 
-</div>
+        </div>
 
-</section>
-
-
-
-<!-- QUIZ -->
-
-<section id="quiz" class="screen hidden">
-
-<div class="parchment">
-
-<div id="progress"></div>
-
-<h2 id="question"></h2>
-
-<div id="answers" class="answersGrid">
-
-<!-- il JS creerà qui le card -->
-
-</div>
-
-</div>
-
-</section>
+    </section>
 
 
 
-<!-- ERRORE -->
 
-<section id="failure" class="screen hidden">
 
-<div class="parchment">
+    <!-- QUIZ -->
 
-<h1>🌫️</h1>
+    <section id="quiz" class="screen hidden">
 
-<h2>Ti sei persa nella nebbia...</h2>
+        <div class="quizContainer">
 
-<p>
+            <div id="progress"></div>
 
-Le Highlands hanno deciso di metterti alla prova.
+            <h2 id="question"></h2>
 
-Il viaggio ricomincerà tra pochi istanti.
+            <div id="answers" class="answersGrid"></div>
 
-</p>
+        </div>
 
-</div>
-
-</section>
+    </section>
 
 
 
-<!-- FINALE -->
 
-<section id="reveal" class="screen hidden">
 
-<div class="parchment">
+    <!-- ERRORE -->
 
-<h1>🏆 Complimenti!</h1>
+    <section id="failure" class="screen hidden">
 
-<p>
+        <div class="parchment">
 
-Hai completato tutte le prove.
+            <h1>🌫️</h1>
 
-</p>
+            <h2>Ti sei persa nella nebbia...</h2>
 
-<p class="giftText">
+            <p>
 
-Clicca qui per ricevere il tuo regalo!
+                Le Highlands ti hanno fatto
+                perdere la strada.
 
-</p>
+            </p>
 
-<button id="giftButton" class="giftButton">
+            <p>
 
-🎁 Apri il regalo
+                Il viaggio ricomincerà tra pochi
+                istanti...
 
-</button>
+            </p>
 
-</div>
+        </div>
 
-</section>
+    </section>
+
+
+
+
+
+    <!-- FINALE -->
+
+    <section id="reveal" class="screen hidden">
+
+        <div class="parchment">
+
+            <h1>🏆 Complimenti!</h1>
+
+            <p>
+
+                Hai superato tutte le prove.
+
+            </p>
+
+            <p class="giftText">
+
+                Clicca qui per ricevere il tuo regalo.
+
+            </p>
+
+            <button id="giftButton" class="giftButton">
+
+                🎁 Apri il regalo
+
+            </button>
+
+        </div>
+
+    </section>
 
 </main>
 
@@ -140,4 +146,3 @@ Clicca qui per ricevere il tuo regalo!
 </body>
 
 </html>
-```
