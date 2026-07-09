@@ -1,44 +1,127 @@
+```javascript
 const quiz = [
 
 {
-    q:"Qual è la serie che ci ha fatto innamorare della Scozia?",
-    a:[
-        "Outlander",
-        "Harry Potter",
-        "The Crown",
-        "Lost"
-    ],
-    c:0
-},
-{
-    q:"Come si chiamava il luogo dove ci siamo baciati oggi 10 anni fa?",
-    a:[
-        "Lido Aurora",
-        "Lido Nettuno",
-        "Lido Miramare",
-        "Lido Azzurro"
-    ],
-    c:0
+    question:"Qual è la serie che ci ha fatto innamorare della Scozia?",
+
+    answers:[
+
+        {
+            text:"Outlander",
+            image:"img/outlander.jpg",
+            correct:true
+        },
+
+        {
+            text:"Harry Potter",
+            image:"img/hp.jpg",
+            correct:false
+        },
+
+        {
+            text:"The Crown",
+            image:"img/crown.jpg",
+            correct:false
+        },
+
+        {
+            text:"Lost",
+            image:"img/lost.jpg",
+            correct:false
+        }
+
+    ]
+
 },
 
 {
-    q:"Cosa ci piace fare insieme?",
-    a:[
-        "Viaggiare",
-        "Dormire tutto il giorno",
-        "Collezionare francobolli",
-        "Golf"
-    ],
-    c:0
+
+    question:"Come si chiamava il luogo dove ci siamo baciati oggi 10 anni fa?",
+
+    answers:[
+
+        {
+            text:"Lido Aurora",
+            image:"img/aurora.jpg",
+            correct:true
+        },
+
+        {
+            text:"Lido Nettuno",
+            image:"img/nettuno.jpg",
+            correct:false
+        },
+
+        {
+            text:"Lido Miramare",
+            image:"img/miramare.jpg",
+            correct:false
+        },
+
+        {
+            text:"Lido Azzurro",
+            image:"img/azzurro.jpg",
+            correct:false
+        }
+
+    ]
+
 },
 
 {
-    q:"Secondo te il viaggio in Outlander finirà dopo questa vacanza?",
-    a:[
-        "Sì",
-        "No"
-    ],
-    c:1
+
+    question:"Cosa ci piace fare insieme?",
+
+    answers:[
+
+        {
+            text:"Viaggiare",
+            image:"img/viaggio.jpg",
+            correct:true
+        },
+
+        {
+            text:"Dormire tutto il giorno",
+            image:"img/dormire.jpg",
+            correct:false
+        },
+
+        {
+            text:"Collezionare francobolli",
+            image:"img/francobolli.jpg",
+            correct:false
+        },
+
+        {
+            text:"Golf",
+            image:"img/golf.jpg",
+            correct:false
+        }
+
+    ]
+
+},
+
+{
+
+    question:"Secondo te il viaggio in Outlander finirà dopo questa vacanza?",
+
+    answers:[
+
+        {
+            text:"Sì",
+            image:"img/si.jpg",
+            correct:false
+        },
+
+        {
+            text:"No",
+            image:"img/no.jpg",
+            correct:true
+        }
+
+    ]
+
 }
 
 ];
@@ -50,11 +133,23 @@ const quizScreen = document.getElementById("quiz");
 const failureScreen = document.getElementById("failure");
 const revealScreen = document.getElementById("reveal");
 
-const question = document.getElementById("q");
-const answers = document.getElementById("answers");
+const question = document.getElementById("question");
 const progress = document.getElementById("progress");
+const answers = document.getElementById("answers");
 
-document.getElementById("start").addEventListener("click", ()=>{
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(Math.random()*(i+1));
+
+        [array[i],array[j]]=[array[j],array[i]];
+
+    }
+
+}
+
+document.getElementById("start").onclick=()=>{
 
     intro.classList.add("hidden");
 
@@ -62,40 +157,46 @@ document.getElementById("start").addEventListener("click", ()=>{
 
     showQuestion();
 
-});
+};
 
 function showQuestion(){
 
-    const current = quiz[currentQuestion];
+    progress.innerHTML=`Domanda ${currentQuestion+1} di ${quiz.length}`;
 
-    progress.innerHTML =
-    `Domanda ${currentQuestion+1} di ${quiz.length}`;
+    question.innerHTML=quiz[currentQuestion].question;
 
-    question.innerHTML = current.q;
+    answers.innerHTML="";
 
-    answers.innerHTML = "";
+    const currentAnswers=[...quiz[currentQuestion].answers];
 
-    current.a.forEach((text,index)=>{
+    shuffle(currentAnswers);
 
-        const button = document.createElement("button");
+    currentAnswers.forEach(answer=>{
 
-        button.className = "ans";
+        const card=document.createElement("div");
 
-        button.innerHTML = text;
+        card.className="answerCard";
 
-        button.addEventListener("click",()=>{
+        card.innerHTML=`
 
-            document
-            .querySelectorAll(".ans")
-            .forEach(btn=>btn.disabled=true);
+            <img src="${answer.image}">
 
-            if(index===current.c){
+            <div class="answerTitle">
 
-                button.style.background="#2e8b57";
+                ${answer.text}
 
-                button.style.borderColor="#69d28d";
+            </div>
 
-                button.style.transform="scale(1.03)";
+        `;
+
+        card.onclick=()=>{
+
+            document.querySelectorAll(".answerCard")
+            .forEach(c=>c.style.pointerEvents="none");
+
+            if(answer.correct){
+
+                card.classList.add("correct");
 
                 setTimeout(()=>{
 
@@ -121,20 +222,9 @@ function showQuestion(){
 
             else{
 
-                button.style.background="#a71d2a";
+                card.classList.add("wrong");
 
-                button.style.borderColor="#ff6b6b";
-
-                button.animate([
-                    {transform:"translateX(0px)"},
-                    {transform:"translateX(-8px)"},
-                    {transform:"translateX(8px)"},
-                    {transform:"translateX(-8px)"},
-                    {transform:"translateX(8px)"},
-                    {transform:"translateX(0px)"}
-                ],{
-                    duration:450
-                });
+                card.classList.add("shake");
 
                 setTimeout(()=>{
 
@@ -146,11 +236,11 @@ function showQuestion(){
 
                 setTimeout(()=>{
 
+                    currentQuestion=0;
+
                     failureScreen.classList.add("hidden");
 
                     quizScreen.classList.remove("hidden");
-
-                    currentQuestion=0;
 
                     showQuestion();
 
@@ -158,16 +248,17 @@ function showQuestion(){
 
             }
 
-        });
+        };
 
-        answers.appendChild(button);
+        answers.appendChild(card);
 
     });
 
 }
 
-document.getElementById("giftButton").addEventListener("click",()=>{
+document.getElementById("giftButton").onclick=()=>{
 
     window.location.href="regalo.pdf";
 
-});
+};
+```
