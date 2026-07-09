@@ -1,141 +1,143 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Il regalo di Simona ❤️</title>
+<title>Il regalo di Simona ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-    <!-- Nebbia -->
-    <div class="fog fog1"></div>
-    <div class="fog fog2"></div>
+<div class="overlay"></div>
 
-    <!-- Overlay scuro -->
-    <div class="overlay"></div>
+<div class="fog fog1"></div>
+<div class="fog fog2"></div>
 
-    <main class="container">
+<main class="container">
 
-        <!-- INTRO -->
+<!-- INTRO -->
 
-        <section id="intro" class="screen">
+<section id="intro" class="screen">
 
-            <div class="parchment">
+<div class="parchment">
 
-                <h1>Ciao Simona! ❤️</h1>
+<h1>Ciao Simona ❤️</h1>
 
-                <h2>Benvenuta nel tuo regalo</h2>
+<h2>Benvenuta nel tuo regalo</h2>
 
-                <p>
+<p>
 
-                    Per scoprire cosa ti aspetta dovrai affrontare
-                    un piccolo viaggio tra ricordi, emozioni...
-                    e Highlands scozzesi.
+Per scoprire cosa ti aspetta dovrai superare alcune prove...
 
-                </p>
+</p>
 
-                <button id="start" class="primaryButton">
+<button id="start" class="mainButton">
 
-                    Inizia l'avventura
+Inizia l'avventura
 
-                </button>
+</button>
 
-            </div>
+</div>
 
-        </section>
+</section>
 
 
 
-        <!-- QUIZ -->
+<!-- QUIZ -->
 
-        <section id="quiz" class="screen hidden">
+<section id="quiz" class="screen hidden">
 
-            <div class="parchment">
+<div class="parchment">
 
-                <div id="progress"></div>
+<div id="progress"></div>
 
-                <h2 id="q"></h2>
+<h2 id="question"></h2>
 
-                <div id="answers"></div>
+<div id="answers" class="answersGrid">
 
-            </div>
+<!-- il JS creerà qui le card -->
 
-        </section>
+</div>
 
+</div>
 
-
-        <!-- ERRORE -->
-
-        <section id="failure" class="screen hidden">
-
-            <div class="parchment">
-
-                <h2>🌫️</h2>
-
-                <h1>Ti sei persa nella nebbia...</h1>
-
-                <p>
-
-                    Le Highlands hanno deciso di metterti alla prova.
-
-                    Il viaggio ricomincerà tra pochi istanti.
-
-                </p>
-
-            </div>
-
-        </section>
+</section>
 
 
 
-        <!-- VITTORIA -->
+<!-- ERRORE -->
 
-        <section id="reveal" class="screen hidden">
+<section id="failure" class="screen hidden">
 
-            <div class="parchment">
+<div class="parchment">
 
-                <h1>🏆 Complimenti!</h1>
+<h1>🌫️</h1>
 
-                <p>
+<h2>Ti sei persa nella nebbia...</h2>
 
-                    Hai superato tutte le prove.
+<p>
 
-                </p>
+Le Highlands hanno deciso di metterti alla prova.
 
-                <p class="giftText">
+Il viaggio ricomincerà tra pochi istanti.
 
-                    Clicca qui per ricevere il tuo regalo.
+</p>
 
-                </p>
+</div>
 
-                <button id="giftButton" class="giftButton">
+</section>
 
-                    🎁 Apri il regalo
 
-                </button>
 
-            </div>
+<!-- FINALE -->
 
-        </section>
+<section id="reveal" class="screen hidden">
 
-    </main>
+<div class="parchment">
 
-    <script src="script.js"></script>
+<h1>🏆 Complimenti!</h1>
+
+<p>
+
+Hai completato tutte le prove.
+
+</p>
+
+<p class="giftText">
+
+Clicca qui per ricevere il tuo regalo!
+
+</p>
+
+<button id="giftButton" class="giftButton">
+
+🎁 Apri il regalo
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
+```
