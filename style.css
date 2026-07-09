@@ -1,11 +1,11 @@
+```css
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
 
     width:100%;
     height:100%;
@@ -14,19 +14,13 @@ body{
 
     font-family:"Cormorant Garamond",serif;
 
-    color:white;
-
 }
-
-/* ========================= */
-/* SFONDO */
-/* ========================= */
 
 body{
 
     background:
-    linear-gradient(rgba(8,14,12,.55),rgba(8,14,12,.80)),
-    url("https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1800&q=80");
+    linear-gradient(rgba(10,15,12,.45),rgba(10,15,12,.78)),
+    url("https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=2000&q=80");
 
     background-size:cover;
     background-position:center;
@@ -34,7 +28,7 @@ body{
 
 }
 
-/* overlay */
+/* Overlay */
 
 .overlay{
 
@@ -43,84 +37,82 @@ body{
     inset:0;
 
     background:linear-gradient(
-        rgba(0,0,0,.10),
-        rgba(0,0,0,.35),
-        rgba(0,0,0,.55)
+
+        rgba(0,0,0,.05),
+
+        rgba(0,0,0,.25),
+
+        rgba(0,0,0,.45)
+
     );
 
 }
 
-/* ========================= */
-/* NEBBIA */
-/* ========================= */
+/* Nebbia */
 
 .fog{
 
     position:fixed;
 
-    inset:-10%;
+    inset:-20%;
+
+    filter:blur(70px);
+
+    opacity:.18;
 
     pointer-events:none;
-
-    opacity:.22;
-
-    filter:blur(45px);
 
 }
 
 .fog1{
 
-    background:
-    radial-gradient(circle,#ffffff 0%,transparent 65%);
+    background:radial-gradient(circle,#fff 0%,transparent 60%);
 
-    animation:fogMove1 28s linear infinite;
+    animation:fog1 30s linear infinite;
 
 }
 
 .fog2{
 
-    background:
-    radial-gradient(circle,#ffffff 0%,transparent 60%);
+    background:radial-gradient(circle,#fff 0%,transparent 60%);
 
-    animation:fogMove2 35s linear infinite;
-
-    opacity:.13;
+    animation:fog2 42s linear infinite;
 
 }
 
-@keyframes fogMove1{
+@keyframes fog1{
 
     from{
 
-        transform:translateX(-15%) translateY(2%);
+        transform:translateX(-20%);
 
     }
 
     to{
 
-        transform:translateX(20%) translateY(-3%);
+        transform:translateX(25%);
 
     }
 
 }
 
-@keyframes fogMove2{
+@keyframes fog2{
 
     from{
 
-        transform:translateX(25%) translateY(5%);
+        transform:translateX(20%);
 
     }
 
     to{
 
-        transform:translateX(-15%) translateY(-2%);
+        transform:translateX(-20%);
 
     }
 
 }
 
-/* ========================= */
+/* Contenitore */
 
 .container{
 
@@ -134,8 +126,6 @@ body{
 
 }
 
-/* ========================= */
-
 .screen{
 
     width:100%;
@@ -148,7 +138,7 @@ body{
 
     align-items:center;
 
-    animation:fade .8s;
+    animation:fade .6s;
 
 }
 
@@ -163,6 +153,7 @@ body{
     from{
 
         opacity:0;
+
         transform:translateY(15px);
 
     }
@@ -170,38 +161,34 @@ body{
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
 
 }
 
-/* ========================= */
-/* PERGAMENA */
-/* ========================= */
+/* Pergamena */
 
 .parchment{
 
-    width:min(92%,650px);
+    width:min(95%,900px);
 
-    background:
-    rgba(238,229,204,.90);
+    background:rgba(245,236,214,.94);
 
-    color:#2c2418;
+    color:#35291c;
 
     border-radius:18px;
 
-    padding:45px;
+    padding:40px;
 
     text-align:center;
 
     box-shadow:
 
-    0 25px 60px rgba(0,0,0,.45),
+    0 20px 60px rgba(0,0,0,.45),
 
-    inset 0 0 0 3px rgba(140,104,50,.18);
-
-    backdrop-filter:blur(3px);
+    inset 0 0 0 3px rgba(130,100,55,.18);
 
 }
 
@@ -209,11 +196,9 @@ body{
 
     font-family:"Cinzel",serif;
 
-    font-size:44px;
+    font-size:46px;
 
-    color:#50351d;
-
-    margin-bottom:18px;
+    color:#4d321a;
 
 }
 
@@ -221,65 +206,44 @@ body{
 
     font-family:"Cinzel",serif;
 
-    margin-bottom:25px;
+    margin-top:15px;
 
-    color:#694526;
+    margin-bottom:20px;
 
 }
 
 .parchment p{
 
-    font-size:25px;
+    font-size:28px;
+
+    margin-top:20px;
 
     line-height:1.5;
 
-    margin-bottom:30px;
-
 }
 
-/* ========================= */
+/* Pulsanti */
 
-#progress{
+.mainButton,
+.giftButton{
 
-    font-size:20px;
+    margin-top:30px;
 
-    color:#7a5a37;
-
-    margin-bottom:20px;
-
-    letter-spacing:1px;
-
-}
-
-#q{
-
-    font-size:36px;
-
-    margin-bottom:35px;
-
-}
-
-/* ========================= */
-
-#answers{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-}
-
-/* ========================= */
-/* BOTTONI */
-/* ========================= */
-
-button{
+    border:none;
 
     cursor:pointer;
 
-    border:none;
+    padding:18px 40px;
+
+    font-size:22px;
+
+    color:white;
+
+    border-radius:12px;
+
+    background:linear-gradient(#2d5f40,#1d3e2b);
+
+    border:2px solid #d7b76d;
 
     transition:.25s;
 
@@ -287,89 +251,184 @@ button{
 
 }
 
-.primaryButton,
-.ans,
+.mainButton:hover,
+.giftButton:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
 .giftButton{
 
-    background:linear-gradient(#355a41,#223d2d);
+    background:linear-gradient(#c99d2b,#8f6918);
 
-    color:white;
+}
+
+/* Quiz */
+
+#progress{
 
     font-size:22px;
 
-    padding:16px;
+    color:#88663d;
 
-    border-radius:12px;
-
-    border:2px solid #d7bf7a;
-
-    box-shadow:
-
-    0 8px 18px rgba(0,0,0,.25);
+    margin-bottom:20px;
 
 }
 
-.primaryButton:hover,
-.ans:hover,
-.giftButton:hover{
+#question{
 
-    transform:translateY(-3px) scale(1.02);
-
-    box-shadow:
-
-    0 15px 30px rgba(0,0,0,.35);
-
-}
-
-.primaryButton:active,
-.ans:active,
-.giftButton:active{
-
-    transform:scale(.98);
-
-}
-
-/* ========================= */
-
-.giftButton{
-
-    font-size:28px;
-
-    padding:22px;
-
-    background:
-
-    linear-gradient(#c39b2e,#8b6512);
-
-}
-
-.giftText{
-
-    font-size:28px;
+    font-size:34px;
 
     margin-bottom:30px;
 
 }
 
-/* ========================= */
+/* ========= */
+/* GRID */
+/* ========= */
 
-@media(max-width:700px){
+.answersGrid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:22px;
+
+}
+
+/* CARD */
+
+.answerCard{
+
+    background:white;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    border:3px solid transparent;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.answerCard:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 18px 35px rgba(0,0,0,.28);
+
+    border-color:#b69352;
+
+}
+
+.answerCard img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.answerTitle{
+
+    padding:18px;
+
+    font-size:24px;
+
+    font-family:"Cinzel",serif;
+
+}
+
+/* CORRETTA */
+
+.correct{
+
+    background:#2e8b57 !important;
+
+    color:white;
+
+    border-color:#72d69b !important;
+
+}
+
+/* ERRATA */
+
+.wrong{
+
+    background:#b62525 !important;
+
+    color:white;
+
+    border-color:#ff8a8a !important;
+
+}
+
+/* Vibrazione */
+
+.shake{
+
+    animation:shake .35s;
+
+}
+
+@keyframes shake{
+
+0%{transform:translateX(0);}
+25%{transform:translateX(-6px);}
+50%{transform:translateX(6px);}
+75%{transform:translateX(-6px);}
+100%{transform:translateX(0);}
+
+}
+
+/* Responsive */
+
+@media(max-width:760px){
+
+.answersGrid{
+
+    grid-template-columns:1fr;
+
+}
+
+.answerCard img{
+
+    height:170px;
+
+}
 
 .parchment{
 
-    padding:30px;
+    padding:25px;
 
 }
 
 .parchment h1{
 
-    font-size:32px;
+    font-size:34px;
 
 }
 
-.parchment h2{
+#question{
 
-    font-size:24px;
+    font-size:26px;
 
 }
 
@@ -379,24 +438,5 @@ button{
 
 }
 
-#q{
-
-    font-size:28px;
-
 }
-
-.primaryButton,
-.ans,
-.giftButton{
-
-    font-size:20px;
-
-}
-
-.giftButton{
-
-    font-size:24px;
-
-}
-
-}
+```
