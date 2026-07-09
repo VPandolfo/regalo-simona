@@ -1,4 +1,3 @@
-```javascript
 const quiz = [
 
 {
@@ -261,4 +260,3 @@ document.getElementById("giftButton").onclick=()=>{
     window.location.href="regalo.pdf";
 
 };
-```
